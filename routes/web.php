@@ -22,5 +22,5 @@ Route::group(['middleware' => 'auth','verified'], function () {
 	Route::resource('/users','Admin\UserController');
 	Route::get('/cliente', function () {
     return view('clientes.dashboard');
-});
+		})->middleware('verified');
 });

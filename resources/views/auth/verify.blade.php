@@ -1,12 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.clientes.verify')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                  <img src="{{ asset('img/logos/logo_completo.png') }}" alt="">
-                <div class="card-header">{{ __('Verifica tu direccion de correo electronico') }}</div>
+                 <div class="card-header">{{ __('Verifica tu direccion de correo electronico') }}</div>
 
                 <div class="card-body">
 

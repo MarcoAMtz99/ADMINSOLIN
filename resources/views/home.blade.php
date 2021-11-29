@@ -13,8 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    @if(auth()->user()->hasRole('admin'))
+                    {{ __('Bienvenido!') }}
+                    @elseif(auth()->user()->hasRole('cliente'))
+                    <p class="display-3">USTED NO TIENE PERMISO PARA VISUALIZAR ESTA PARTE</p>
+                    <a href="{{url('/cliente')}} ">VOLVER A CLIENTE DASHBOADR</a>
+                    @endif
                 </div>
             </div>
         </div>

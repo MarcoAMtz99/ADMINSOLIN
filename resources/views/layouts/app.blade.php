@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-dark" style="background-image: url('{{ asset('img/fondo.png')}}');">
+<body class="bg-dark" style="background-image: url('{{ asset('img/fondo.jpg')}}');  background-size: auto;">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
             <div class="container">
@@ -33,6 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                  @auth
+                    @if(auth()->user()->hasRole('admin'))
                     <ul class="navbar-nav mr-auto">
                                 </li>
                                 <!-- SECCION DE SEGURIDAD -->
@@ -42,9 +43,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right text-light" aria-labelledby="navbarDropdown">
-                                   <!--  <a class="dropdown-item" href="#">
-                                        {{ __('Permisos') }}
-                                    </a> -->
+
                                       <a class="dropdown-item" href="#">
                                         {{ __('Roles') }}
                                     </a>
@@ -64,9 +63,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                   <!--  <a class="dropdown-item" href="#">
-                                        {{ __('Permisos') }}
-                                    </a> -->
+
                                       <a class="dropdown-item" href="#">
                                         {{ __('Reporte 1') }}
                                     </a>
@@ -126,6 +123,15 @@
                                 </li>
 
                     </ul>
+                    <!-- EN CASo DE SER UN CLIETE NO LE MOSTRAMOS NADA -->
+                    @elseif(auth()->user()->hasRole('cliente'))
+                    <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                    <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('') }}</a> -->
+                                </li> 
+                     </ul>
+                     @endif
+                     <!-- FIN DE LA VALIDACION DEL ROL  -->
                       @else 
                      <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
