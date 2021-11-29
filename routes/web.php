@@ -23,4 +23,8 @@ Route::group(['middleware' => 'auth','verified'], function () {
 	Route::get('/cliente', function () {
     return view('clientes.dashboard');
 		})->middleware('verified');
+
+	Route::get('/cliente/personal','ClienteController@datos_personales')->name('cliente.personal');
+	// Route::resource('/client','ClienteController');
+
 });
