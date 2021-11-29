@@ -85,7 +85,7 @@ class ClienteController extends Controller
 
     public function datos_personales(Request $request){
        // dd($request->cliente);
-        $client = Cliente::find($request->cliente);
+        $client = cliente::find($request->cliente);
         $datos =$client;
         return view('clientes.datos',compact('datos'));
     }
