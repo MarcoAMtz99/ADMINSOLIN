@@ -47,7 +47,7 @@
                                       <a class="dropdown-item" href="{{route('home')}} ">
                                         {{ __('Roles') }}
                                     </a>
-                                     <a class="dropdown-item" href="#">
+                                     <a class="dropdown-item" href="{{route('users.index')}}">
                                         {{ __('Usuarios') }}
                                     </a>
                                   
