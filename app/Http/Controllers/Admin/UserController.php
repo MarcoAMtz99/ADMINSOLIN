@@ -4,14 +4,15 @@ namespace App\Http\Controllers\Admin;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $Usuarios= User::all();
@@ -19,25 +20,45 @@ class UserController extends Controller
         return view('Usuarios.index',['usuarios'=> $Usuarios]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        //OBTENEMOS TODOS LOS ROLES 
+        $Roles = Role::all();
+        return view('Usuarios.create',['Roles'=>$Roles]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+  
     public function store(Request $request)
     {
-        //
+      
+      
+         $validator = Validator::make($request->all(), [
+            'name' => 'required|min:6','max:25','string',
+            'password' => 'required|min:6',
+            'email' => 'required', 'string', 'email', 'max:255', 'unique:users,email',
+            'role' => 'required', 'numeric',
+        ]);
+         if ($validator->fails()) {
+            return redirect('users/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }else{
+        // CREAMOS EL USUARIO EN DB
+        // BUSCAMOS EL ROL A ASIGNAR EN LA DB
+        $Role = Role::find($request->role);
+        // dd( $Role->name);
+        $usuario =User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'email_verified_at'=>Carbon::now()
+        ])->assignRole($Role->name);
+           
+         //REDIRIGIMOS AL INDEX
+          return redirect('/users');
+       
+        }
     }
 
     /**

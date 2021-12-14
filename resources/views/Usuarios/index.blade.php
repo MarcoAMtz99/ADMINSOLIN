@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header display-4">{{ __('USUARIOS DEL SISTEMA') }}</div>
+                <div class="card-header h4">{{ __('USUARIOS DEL SISTEMA') }}</div>
                        <a href="{{ route('users.create') }}" class="btn btn-dark">
                          <!--  <i
                             class="far fa-add"> </i> -->
