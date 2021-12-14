@@ -39,12 +39,12 @@
                                 <!-- SECCION DE SEGURIDAD -->
                                     <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                   {{ __('Seguridad') }} <span class="caret"></span>
+                                   {{ __('Recursos Humanos') }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right text-light" aria-labelledby="navbarDropdown">
 
-                                      <a class="dropdown-item" href="#">
+                                      <a class="dropdown-item" href="{{route('home')}} ">
                                         {{ __('Roles') }}
                                     </a>
                                      <a class="dropdown-item" href="#">
@@ -98,15 +98,15 @@
                                 </li>
                                 
                                  <!-- SECCION DE SEGURIDAD -->
-                                    <li class="nav-item dropdown">
+                               <!--      <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                    {{ __('Recursos Humanos') }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                   <!--  <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="#">
                                         {{ __('Permisos') }}
-                                    </a> -->
+                                    </a>
                                       <a class="dropdown-item" href="#">
                                         {{ __('Alta') }}
                                     </a>
@@ -115,7 +115,7 @@
                                     </a>
                                   
 
-                                </div>
+                                </div> -->
 
                                 </li>
                                  <li class="nav-item">
