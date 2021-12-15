@@ -13,16 +13,8 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => 'auth','verified'], function () {
 
  	Route::get('/home', 'HomeController@index')->name('home');
-<<<<<<< HEAD
+
 	Route::resource('/users','Admin\UserController');
-	// Route::get('/cliente', function () {
- //    return view('clientes.dashboard');
-	// 	})->middleware('verified');
-=======
-	Route::get('/cliente', function () {
-    return view('clientes.dashboard');
-		})->middleware('verified');
->>>>>>> 1e6ccccf10dfe92965e8127877a0c3dd131fe2cb
 
 	Route::get('/cliente/personal','ClienteController@datos_personales')->name('cliente.personal');
 	Route::get('/cliente/cotizar','ClienteController@cotizar')->name('cliente.cotizar');
