@@ -22,7 +22,7 @@ class CreateDatosFiscalesTable extends Migration
             $table->string('colonia');
             $table->bigInteger('cp');
             $table->string('ciudad');
-            $table->string('pais')
+            $table->string('pais');
             $table->string('alc_mun');
             $table->string('rfc');
             $table->string('correo');
