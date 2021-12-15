@@ -5,27 +5,28 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header h4">{{ __('CREAR USUARIO') }}</div>
+                    <div class="card-header h4">{{ __('EDITAR USUARIO') }}</div>
 
                     <div class="card-body">
                         @foreach ($errors->all() as $error)
                             <li> <strong>{{ $error}}</strong></li>
 
                         @endforeach
-                        <form name="Form" method="POST" action="{{ route('users.store') }}">
+                        <form name="Form" method="POST" action="{{ route('users.update',$User->id) }}">
+                            @method('PUT')
+                            @csrf
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" placeholder="Nombre de usuario " value="{{ old('name') }}">
+                                <input type="text" name="name" class="form-control" placeholder="Nombre de usuario " value="{{ $User->name }}">
 
                             </div>
                             <div class="form-group">
-                                <input type="text" name="email" class="form-control" placeholder="Email de usuario " value="{{ old('email') }}">
+                                <input type="text" name="email" class="form-control" placeholder="Email de usuario " value="{{ $User->email }}">
 
                             </div>
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <input type="password" name="password" class="form-control" placeholder="Password de usuario " value="{{ old('password') }}">
-
-                            </div>
+                            </div>-->
                             <div class="form-group">
                                 <select class="custom-select" id="inputGroupSelect01" name="role">
                                     <option selected>ROL</option>

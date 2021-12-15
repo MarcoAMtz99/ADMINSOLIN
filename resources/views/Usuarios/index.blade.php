@@ -37,15 +37,16 @@
                                         <td>{{$usuario->email}} </td>
                                         <td>
                                             <a href="{{ route('users.edit',$usuario->id) }}" class="btn btn-primary">Editar</a>
-                                         <form role="form" method="POST" action="{{ route('users.destroy',$usuario->id) }}">
-                                            @method('DELETE')
-                                              @csrf
-                                            <input type="hidden" name="_method" value="DELETE">
 
-                                          <button type="submit" class="btn btn-danger" role="button" id="butonBorrar">
-                                               ELIMINAR
-                                             </button>
-                                          </form>
+                                            <form role="form" method="POST" action="{{ route('users.destroy',$usuario->id) }}">
+                                                @method('DELETE')
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+
+                                                <button type="submit" class="btn btn-danger" role="button" id="butonBorrar">
+                                                    ELIMINAR
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
