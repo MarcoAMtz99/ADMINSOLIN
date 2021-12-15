@@ -20,7 +20,7 @@
                                         <th>Costo</th>
                                         <th>Empresa</th>
                                         <th>fecha</th>
-                                        <th>Acciones</th>
+                                        <th colspan="2">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -35,7 +35,11 @@
                                         <td>$9999 </td>
                                         <td>Delivery_Method </td>
                                         <td>{{$cotizacion->created_at}} </td>
-                                      
+                                            <td> 
+                                            <button class="btn btn-danger"><i class="bi bi-reply"></i></button>  
+
+                                            </td>   
+                                            <td><button class="btn btn-info">  <i class="bi bi-search"></i></button></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
