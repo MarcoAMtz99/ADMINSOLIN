@@ -35,7 +35,7 @@ class CotizacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd("Hola",$request);
     }
 
     /**

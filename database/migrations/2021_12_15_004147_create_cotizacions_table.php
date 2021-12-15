@@ -22,6 +22,7 @@ class CreateCotizacionsTable extends Migration
             $table->string('peso');
             $table->string('ancho');
             $table->string('alto');
+            $table->string('largo');
             $table->timestamps();
         });
     }

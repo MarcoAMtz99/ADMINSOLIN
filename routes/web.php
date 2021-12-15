@@ -25,4 +25,6 @@ Route::group(['middleware' => 'auth','verified'], function () {
     Route::resource('/users','Admin\UserController');
     Route::delete('/users/destroy/{id}', 'Admin\UserController@destroy')->name('users.destroy');
     Route::put('/users/update/{id}', 'Admin\UserController@update')->name('users.update');
+
+    Route::resource('/cotizacion','CotizacionController');
 });
