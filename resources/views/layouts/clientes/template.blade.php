@@ -28,7 +28,7 @@
 
 
 
-    <style>
+  <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -43,7 +43,7 @@
           font-size: 3.5rem;
         }
       }
-    </style>
+</style>
 
     
     <!-- Custom styles for this template -->
@@ -77,7 +77,7 @@
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link {{request()->routeIs('cliente.index') == 1 ? 'active': ''}}" href="{{url('/cliente')}}">
               <span data-feather="home"></span>
               Dashboard <span class="sr-only">(current)</span>
             </a>
@@ -101,7 +101,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link {{request()->routeIs('cliente.cotizar') == 1 ? 'active': ''}}"  href="{{route('cliente.cotizar')}}">
               <span data-feather="activity"></span>
               Cotizar
             </a>
@@ -111,13 +111,11 @@
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Personal</span>
           <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-            <!-- <span data-feather="plus-circle"></span> -->
           </a>
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            
-            <a class="nav-link" href="{{route('cliente.personal',['cliente'=>auth()->user()->cliente])}} ">
+            <a class="nav-link {{request()->routeIs('cliente.personal') == 1 ? 'active': ''}}" href="{{route('cliente.personal',['cliente'=>auth()->user()->cliente])}} ">
               <span data-feather="file-text"></span>
               Datos personales
             </a>

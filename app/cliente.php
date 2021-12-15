@@ -27,5 +27,9 @@ class cliente extends Model
 			  return $this->belongsTo('App\User');
 			}
 
+	 public function cotizaciones() {
+            return $this->hasMany('App\Cotizacion','cliente_id','id');
+        }
+
     
 }

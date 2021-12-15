@@ -25,6 +25,7 @@
                                         <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Correo</th>
+                                        <th>Tipo</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -35,6 +36,7 @@
                                         <td>{{$usuario->id}} </td>
                                         <td>{{$usuario->name}} </td>
                                         <td>{{$usuario->email}} </td>
+                                        <td>{{$usuario->getRoleNames()}} </td>
                                         <td>
                                             <a href="{{ route('users.edit',$usuario->id) }}" class="btn btn-primary">Editar</a>
                                          <form role="form" method="POST" action="{{ route('users.destroy',$usuario->id) }}">
