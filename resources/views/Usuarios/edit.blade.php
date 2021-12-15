@@ -1,24 +1,53 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('INICIO') }}</div>
-                   
-                       <img src="{{ asset('img/logo.png') }}" alt="">
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header h4">{{ __('EDITAR USUARIO') }}</div>
 
-                    {{ __('Bienvenido!') }}
+                    <div class="card-body">
+                        @foreach ($errors->all() as $error)
+                            <li> <strong>{{ $error}}</strong></li>
+
+                        @endforeach
+                        <form name="Form" method="POST" action="{{ route('users.update',$User->id) }}">
+                            @method('PUT')
+                            @csrf
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" placeholder="Nombre de usuario " value="{{ $User->name }}">
+
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="email" class="form-control" placeholder="Email de usuario " value="{{ $User->email }}">
+
+                            </div>
+                            <!--<div class="form-group">
+                                <input type="password" name="password" class="form-control" placeholder="Password de usuario " value="{{ old('password') }}">
+                            </div>-->
+                            <div class="form-group">
+                                <select class="custom-select" id="inputGroupSelect01" name="role">
+                                    <option selected>ROL</option>
+                                    @foreach($Roles as $role)
+                                        @if($role->name != 'cliente')
+                                            <option value="{{$role->id}}">{{$role->name}} </option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('role')
+
+                            @enderror
+                            <div class="form-group">
+                                <button  class="btn btn-primary">GUARDAR</button>
+                            </div>
+                        </form>
+                    <!-- {{ __('Bienvenido!') }} -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

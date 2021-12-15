@@ -45,11 +45,22 @@ class ClienteController extends Controller
         //
     }
 
+<<<<<<< HEAD
  
+=======
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\cliente  $cliente
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+     */
+>>>>>>> 1e6ccccf10dfe92965e8127877a0c3dd131fe2cb
     public function destroy(Request $request)
     {
         $dataClient = cliente::find($request->id);
         $dataClient->delete();
+
+        return view('clientes.datos');
     }
 
     public function datos_personales(Request $request){
