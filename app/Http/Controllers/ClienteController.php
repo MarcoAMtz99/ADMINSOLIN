@@ -78,9 +78,10 @@ class ClienteController extends Controller
      * @param  \App\cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cliente $cliente)
+    public function destroy(Request $request)
     {
-        //
+        $dataClient = cliente::find($request->id);
+        $dataClient->delete();
     }
 
     public function datos_personales(Request $request){
