@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\cliente;
 use App\Cotizacion;
+use App\Direccion;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class ClienteController extends Controller
 {
@@ -65,5 +67,18 @@ class ClienteController extends Controller
         //
         $Cotizacion = Cotizacion::all();
         return view('clientes.cotizar');
+    }
+    public function historial(Request $request)
+    {   
+        // dd($request->id);
+        $cotizaciones = Cotizacion::where('cliente_id',$request->id)->get();
+
+        return view('clientes.historial',['cotizaciones'=>$cotizaciones]);
+    }
+    public function direcciones(Request $request)
+    {   
+        $direcciones = Direccion::where('cliente_id',$request->id)->get();
+        // dd($request,$direcciones);
+        return view('clientes.direcciones',['direcciones'=>$direcciones]);
     }
 }

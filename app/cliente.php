@@ -30,6 +30,10 @@ class cliente extends Model
 	 public function cotizaciones() {
             return $this->hasMany('App\Cotizacion','cliente_id','id');
         }
+        
+       public function direcciones() {
+            return $this->hasMany('App\Direccion','cliente_id','id');
+        }
 
     
 }

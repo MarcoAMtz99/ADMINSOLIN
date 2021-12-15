@@ -68,11 +68,5 @@ class CotizacionController extends Controller
     {
         
     }
-     public function historial(Request $request)
-    {   
-        // dd($request->id);
-        $cotizaciones = Cotizacion::where('cliente_id',$request->id)->get();
-
-        return view('clientes.historial',['cotizaciones'=>$cotizaciones]);
-    }
+     
 }
