@@ -13,7 +13,6 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => 'auth','verified'], function () {
 
  	Route::get('/home', 'HomeController@index')->name('home');
-	Route::resource('/users','Admin\UserController');
 	Route::get('/cliente', function () {
     return view('clientes.dashboard');
 		})->middleware('verified');
@@ -21,4 +20,7 @@ Route::group(['middleware' => 'auth','verified'], function () {
 	Route::get('/cliente/personal','ClienteController@datos_personales')->name('cliente.personal');
 	// Route::resource('/client','ClienteController');
     Route::delete('/cliente/destroy/{id}', 'ClienteController@destroy')->name('cliente.destroy');
+
+    Route::resource('/users','Admin\UserController');
+    Route::delete('/users/destroy/{id}', 'Admin\UserController@destroy')->name('users.destroy');
 });

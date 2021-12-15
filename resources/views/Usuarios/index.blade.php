@@ -15,7 +15,7 @@
                             </svg>
                             CREAR USUARIO
                         </a>
-              
+
                 <div class="card-body ">
 
                       <div class="table-responsive">
@@ -30,7 +30,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach($usuarios as $usuario)
-                                
+
                                     <tr>
                                         <td>{{$usuario->id}} </td>
                                         <td>{{$usuario->name}} </td>
@@ -41,7 +41,7 @@
                                             @method('DELETE')
                                               @csrf
                                             <input type="hidden" name="_method" value="DELETE">
-                                        
+
                                           <button type="submit" class="btn btn-danger" role="button" id="butonBorrar">
                                                ELIMINAR
                                              </button>

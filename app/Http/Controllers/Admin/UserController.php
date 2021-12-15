@@ -16,23 +16,23 @@ class UserController extends Controller
     public function index()
     {
         $Usuarios= User::all();
-        
+
         return view('Usuarios.index',['usuarios'=> $Usuarios]);
     }
 
 
     public function create()
     {
-        //OBTENEMOS TODOS LOS ROLES 
+        //OBTENEMOS TODOS LOS ROLES
         $Roles = Role::all();
         return view('Usuarios.create',['Roles'=>$Roles]);
     }
 
-  
+
     public function store(Request $request)
     {
-      
-      
+
+
          $validator = Validator::make($request->all(), [
             'name' => 'required|min:6','max:25','string',
             'password' => 'required|min:6',
@@ -54,10 +54,10 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'email_verified_at'=>Carbon::now()
         ])->assignRole($Role->name);
-           
+
          //REDIRIGIMOS AL INDEX
           return redirect('/users');
-       
+
         }
     }
 
@@ -98,11 +98,16 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        $dataUser = User::find($id);
+        $dataUser->delete();
+
+        $usuarios = User::all();
+
+        return view('Usuarios.index',compact('usuarios'));
     }
 }
