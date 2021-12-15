@@ -16,25 +16,24 @@
                                         <th>Tipo de paquete</th>
                                         <th>Cp origen</th>
                                         <th>Cp destino</th>
-                                        <th>peso</th>
-                                        <th>ancho</th>
-                                        <th>largo</th>
-                                        <th>alto</th>
+                                        <th>N° de Guia</th>
+                                        <th>Costo</th>
+                                        <th>Empresa</th>
                                         <th>fecha</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($cotizaciones as $cotizacion)
+                                    @foreach($cotizaciones as $key=>$cotizacion)
 
                                     <tr>
-                                        <td>{{$cotizacion->id}} </td>
+                                        <td>{{$key+1}} </td>
                                         <td>{{$cotizacion->tipo_paquete ==0 ?'DOCUMENTO':'PAQUETE'}} </td>
                                         <td>{{$cotizacion->cp_origen}} </td>
                                         <td>{{$cotizacion->cp_destino}} </td>
-                                        <td>{{$cotizacion->peso}} </td>
-                                        <td>{{$cotizacion->ancho}} </td>
-                                        <td>{{$cotizacion->largo}} </td>
-                                        <td>{{$cotizacion->alto}} </td>
+                                            <td>SO {{rand(1,99999)}} </td>
+                                        <td>$9999 </td>
+                                        <td>Delivery_Method </td>
                                         <td>{{$cotizacion->created_at}} </td>
                                       
                                     </tr>

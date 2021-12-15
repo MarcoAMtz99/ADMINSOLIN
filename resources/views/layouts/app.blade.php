@@ -44,9 +44,9 @@
 
                                 <div class="dropdown-menu dropdown-menu-right text-light" aria-labelledby="navbarDropdown">
 
-                                      <a class="dropdown-item" href="{{route('home')}} ">
+                                  <!--     <a class="dropdown-item" href="{{route('home')}} ">
                                         {{ __('Roles') }}
-                                    </a>
+                                    </a> -->
                                      <a class="dropdown-item" href="{{route('users.index')}}">
                                         {{ __('Usuarios') }}
                                     </a>
@@ -76,15 +76,15 @@
 
                                 </li>
                                 <!-- SECCION DE Cotizaciones -->
-                                    <li class="nav-item dropdown">
+                              <!--       <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                    {{ __('Cotizaciones') }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                   <!--  <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="#">
                                         {{ __('Permisos') }}
-                                    </a> -->
+                                    </a>
                                       <a class="dropdown-item" href="#">
                                         {{ __('Historial') }}
                                     </a>
@@ -95,7 +95,7 @@
 
                                 </div>
 
-                                </li>
+                                </li> -->
                                 
                                  <!-- SECCION DE SEGURIDAD -->
                                <!--      <li class="nav-item dropdown">
@@ -118,10 +118,10 @@
                                 </div> -->
 
                                 </li>
-                                 <li class="nav-item">
+                                 <!-- <li class="nav-item">
                                     <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Cotizar') }}</a>
                                 </li>
-
+ -->
                     </ul>
                     <!-- EN CASo DE SER UN CLIETE NO LE MOSTRAMOS NADA -->
                     @elseif(auth()->user()->hasRole('cliente'))
