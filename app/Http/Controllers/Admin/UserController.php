@@ -122,19 +122,13 @@ class UserController extends Controller
      */
     public function destroy(int $id)
     {
-<<<<<<< HEAD
-        //
-         $usuario = User::find($id);
-         $usuario->delete();
 
-         return redirect('/users');
-=======
+ 
         $dataUser = User::find($id);
         $dataUser->delete();
 
         $usuarios = User::all();
 
         return view('Usuarios.index',compact('usuarios'));
->>>>>>> 1e6ccccf10dfe92965e8127877a0c3dd131fe2cb
     }
 }
