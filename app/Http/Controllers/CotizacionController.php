@@ -11,7 +11,8 @@ class CotizacionController extends Controller
    
     public function index()
     {
-        
+        $Cotizaciones = Cotizacion::all();
+        return view('Cotizaciones.index', ['cotizaciones'=>$Cotizaciones]);
     }
 
    

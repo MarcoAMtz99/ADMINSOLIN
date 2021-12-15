@@ -15,6 +15,7 @@ Route::group(['middleware' => 'auth','verified'], function () {
  	Route::get('/home', 'HomeController@index')->name('home');
 
 	Route::resource('/users','Admin\UserController');
+	Route::resource('/cotizaciones','CotizacionController');
 
 	Route::get('/cliente/personal','ClienteController@datos_personales')->name('cliente.personal');
 	Route::get('/cliente/cotizar','ClienteController@cotizar')->name('cliente.cotizar');
@@ -30,4 +31,12 @@ Route::group(['middleware' => 'auth','verified'], function () {
     Route::put('/users/update/{id}', 'Admin\UserController@update')->name('users.update');
 
     Route::resource('/cotizacion','CotizacionController');
+
+
+    Route::get('/reporteuno',function(){
+    	return view('Reportes.reporteuno');
+    })->name('reporte.uno');
+     Route::get('/reportedos',function(){
+    	return view('Reportes.reportedos');
+    })->name('reporte.dos');
 });

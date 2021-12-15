@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -64,10 +64,10 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                      <a class="dropdown-item" href="#">
+                                      <a class="dropdown-item" href="{{route('reporte.uno')}}">
                                         {{ __('Reporte 1') }}
                                     </a>
-                                     <a class="dropdown-item" href="#">
+                                     <a class="dropdown-item" href="{{route('reporte.dos')}}">
                                         {{ __('Reporte 2') }}
                                     </a>
                                   
@@ -76,26 +76,26 @@
 
                                 </li>
                                 <!-- SECCION DE Cotizaciones -->
-                              <!--       <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                    {{ __('Cotizaciones') }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">
+                                   <!--  <a class="dropdown-item" href="#">
                                         {{ __('Permisos') }}
-                                    </a>
-                                      <a class="dropdown-item" href="#">
+                                    </a> -->
+                                      <a class="dropdown-item" href="{{route('cotizaciones.index')}}">
                                         {{ __('Historial') }}
                                     </a>
-                                     <a class="dropdown-item" href="#">
+                                  <!--    <a class="dropdown-item" href="#">
                                         {{ __('Facturas') }}
-                                    </a>
+                                    </a> -->
                                   
 
                                 </div>
 
-                                </li> -->
+                                </li>
                                 
                                  <!-- SECCION DE SEGURIDAD -->
                                <!--      <li class="nav-item dropdown">
