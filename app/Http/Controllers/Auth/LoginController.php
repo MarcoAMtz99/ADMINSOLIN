@@ -40,9 +40,11 @@ class LoginController extends Controller
     }
     //Sobreescribimos el metodo redirect para evaluar el tipo de usuario y a donde lo mandaremos despues
     public function redirectPath(){
-       if (auth()->user()->email=='admin@solin.com') {
+       // dd('Hola');
+       if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('empleado')) {
            return '/home';
        }else{
+
             return '/cliente';
        }
         
