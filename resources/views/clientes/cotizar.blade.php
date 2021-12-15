@@ -13,9 +13,9 @@
                    <div class="card-body">
                        <form action="{{ route('cotizacion.store') }}" method="POST">
                          @csrf
-                      
+
                          <div class="form-group">
-                           <input type="hidden"  class="form-control" name="cliente_id" value="Auth::user()->cliente->user_id">
+                           <input type="hidden"  class="form-control" name="cliente_id" value="{{Auth::user()->cliente->user_id}}">
                          </div>
                          <div class="form-group">
                            <input type="number" placeholder="Codigo Postal Origen" class="form-control" name="cp_origen">

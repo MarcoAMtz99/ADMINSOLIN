@@ -4,82 +4,75 @@ namespace App\Http\Controllers;
 
 use App\Cotizacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CotizacionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        //
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        //
+        
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
-    {
-        dd("Hola",$request);
+    {       $validator =Validator::make($request->all(), [
+            'cp_origen' => ['required', 'numeric'],
+            'cp_destino' => ['required', 'numeric'],
+            'largo' => ['required', 'numeric'],
+            'ancho' => ['required', 'numeric'],
+            'alto' => ['required', 'numeric'],
+            'peso' => ['required', 'numeric'],
+            'tipo_paquete' =>['required', 'numeric']
+            
+        ]);
+             if ($validator->fails()) {
+            return redirect('cliente/cotizar')
+                        ->withErrors($validator)
+                        ->withInput();
+        }else{
+            $cotizacion = Cotizacion::create($request->all());
+            $cotizacion->save();
+
+            return redirect('cliente/cotizar');
+        }
+        
+
+       
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Cotizacion  $cotizacion
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show(Cotizacion $cotizacion)
     {
-        //
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Cotizacion  $cotizacion
-     * @return \Illuminate\Http\Response
-     */
+  
     public function edit(Cotizacion $cotizacion)
     {
-        //
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cotizacion  $cotizacion
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, Cotizacion $cotizacion)
     {
-        //
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Cotizacion  $cotizacion
-     * @return \Illuminate\Http\Response
-     */
+  
     public function destroy(Cotizacion $cotizacion)
     {
-        //
+        
+    }
+     public function historial(Request $request)
+    {   
+        // dd($request->id);
+        $cotizaciones = Cotizacion::where('cliente_id',$request->id)->get();
+
+        return view('clientes.historial',['cotizaciones'=>$cotizaciones]);
     }
 }

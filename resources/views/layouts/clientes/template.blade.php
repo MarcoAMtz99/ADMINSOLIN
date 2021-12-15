@@ -83,7 +83,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link {{request()->routeIs('cliente.historial') == 1 ? 'active': ''}} " href="{{route('cliente.historial',['id'=>Auth::user()->cliente->user_id])}}">
               <span data-feather="file"></span>
               Historial
             </a>
