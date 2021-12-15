@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
-use App\Cliente;
+use App\cliente;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 class UserSeeder extends Seeder
@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'password'=>bcrypt('12345678')
         ])->assignRole('cliente');
 
-        Cliente::create([
+        cliente::create([
                     'user_id'=>$usuario->id,
                     'nombre'=>'Cliente',
                     'paterno'=>'de',
