@@ -22,17 +22,19 @@ class cliente extends Model
     ];
 
 
-    public function user()
-			{
-			  return $this->belongsTo('App\User');
-			}
+    public function user(){
+			return $this->belongsTo('App\User');
+		}
 
-	 public function cotizaciones() {
+	public function cotizaciones() {
             return $this->hasMany('App\Cotizacion','cliente_id','id');
         }
         
-       public function direcciones() {
+    public function direcciones() {
             return $this->hasMany('App\Direccion','cliente_id','id');
+        }
+    public function datosfiscales() {
+            return $this->hasMany('App\DatosFiscales','cliente_id','id');
         }
 
     
