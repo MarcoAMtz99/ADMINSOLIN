@@ -26,7 +26,7 @@ class CreateDatosFiscalesTable extends Migration
             $table->string('alc_mun');
             $table->string('rfc');
             $table->string('correo');
-            $tbale->string('razon_social');
+            $table->string('razon_social');
             $table->timestamps();
         });
     }
