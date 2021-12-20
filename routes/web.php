@@ -19,6 +19,8 @@ Route::group(['middleware' => 'auth','verified'], function () {
 
 	Route::get('/cliente/personal','ClienteController@datos_personales')->name('cliente.personal');
 	Route::get('/cliente/cotizar','ClienteController@cotizar')->name('cliente.cotizar');
+	Route::get('/cliente/rastreo','ClienteController@rastreo')->name('cliente.rastreo');
+	Route::get('/cliente/credito','ClienteController@credito')->name('cliente.credito');
 	Route::get('/cliente/historial','ClienteController@historial')->name('cliente.historial');
 	Route::get('/cliente/direcciones','ClienteController@direcciones')->name('cliente.direcciones');
 	Route::get('/cliente','ClienteController@index')->name('cliente.index')->middleware('verified');

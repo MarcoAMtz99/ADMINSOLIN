@@ -35,7 +35,6 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-
          $validator = Validator::make($request->all(), [
             'name' => 'required|min:6','max:25','string',
             'password' => 'required|min:6',
@@ -106,6 +105,7 @@ class UserController extends Controller
         if ($User !== null){
             $User->name = $request->name;
             $User->email = $request->email;
+            $User->password = Hash::make($request->password);
             $User->save();
         }
 
@@ -123,7 +123,7 @@ class UserController extends Controller
     public function destroy(int $id)
     {
 
- 
+
         $dataUser = User::find($id);
         $dataUser->delete();
 

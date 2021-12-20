@@ -10,7 +10,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/dashboard/">
 
-    
+
   <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -45,12 +45,12 @@
       }
 </style>
 
-    
+
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
   </head>
   <body>
-    
+
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">
     <img src="{{ asset('img/logos/logo_negativo.png') }}" alt=""  style="width: 60px; margin-left: 95px;">
@@ -89,13 +89,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link {{request()->routeIs('cliente.credito') == 1 ? 'active': ''}}" href="{{route('cliente.credito')}}">
               <span data-feather="credit-card"></span>
               Credito
             </a>
           </li>
              <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link {{request()->routeIs('cliente.rastreo') == 1 ? 'active': ''}}" href="{{route('cliente.rastreo')}}">
               <span data-feather="map-pin"></span>
               Rastrear
             </a>
@@ -132,7 +132,7 @@
               Direcciones
             </a>
           </li>
-         
+
         </ul>
       </div>
     </nav>
@@ -148,7 +148,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-      
+
         <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
         <script src="{{ asset('js/dashboard.js') }}"></script>

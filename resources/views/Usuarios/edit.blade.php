@@ -24,9 +24,9 @@
                                 <input type="text" name="email" class="form-control" placeholder="Email de usuario " value="{{ $User->email }}">
 
                             </div>
-                            <!--<div class="form-group">
-                                <input type="password" name="password" class="form-control" placeholder="Password de usuario " value="{{ old('password') }}">
-                            </div>-->
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control" placeholder="Password de usuario " value="{{ $User->password }}">
+                            </div>
                             <div class="form-group">
                                 <select class="custom-select" id="inputGroupSelect01" name="role">
                                     <option selected>ROL</option>
