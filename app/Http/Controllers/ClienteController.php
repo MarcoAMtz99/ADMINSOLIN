@@ -88,4 +88,8 @@ class ClienteController extends Controller
     public function rastreo(Request $request){
         return view('clientes.rastreo');
     }
+
+    public function credito(Request $request){
+        return view('clientes.credito');
+    }
 }

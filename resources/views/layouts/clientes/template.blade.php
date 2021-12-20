@@ -89,7 +89,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link {{request()->routeIs('cliente.credito') == 1 ? 'active': ''}}" href="{{route('cliente.credito')}}">
               <span data-feather="credit-card"></span>
               Credito
             </a>
