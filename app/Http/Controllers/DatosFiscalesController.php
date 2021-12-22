@@ -109,8 +109,15 @@ class DatosFiscalesController extends Controller
      * @param  \App\DatosFiscales  $datosFiscales
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DatosFiscales $datosFiscales)
+    public function destroy(Request $request)
     {
         //
+            // dd($request->cliente_id);
+         $datofiscal = DatosFiscales::find($request->id);
+         $datofiscal->delete();
+
+        // $usuarios = User::all();
+        $datosfiscales = DatosFiscales::where('cliente_id',$request->cliente_id)->get();
+        return view('clientes.facturacion',compact('datosfiscales'));
     }
 }

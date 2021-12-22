@@ -28,7 +28,9 @@
                                 </thead>
                                 <tbody>
                                   @if(isset($datosfiscales))
-
+                                    @if(count($datosfiscales)<=0)
+                                      <h4>NO HAY REGISTROS DE DATOS FISCALES</h4>
+                                    @else
                                   @foreach($datosfiscales as $key => $dato )
                                    <tr>
                                       <td>{{$key+1}} </td>
@@ -38,11 +40,25 @@
                                       <td>{{$dato->colonia}}</td>
                                       <td>{{$dato->correo}}</td>
                                       <td>{{$dato->razon_social}}</td>
-                                      <td>{{$dato->rfc}}</td>       
+                                      <td>{{$dato->rfc}}</td>  
+                                      <td>
+                                            <!-- <a href="{{ route('datosfiscales.edit',Auth::user()->cliente->user_id) }}" class="btn btn-primary">Editar</a> -->
+
+                                            <form role="form" method="POST" action="{{ route('datosfiscales.destroy',$dato->id) }}">
+                                                @method('DELETE')
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="id" value="{{$dato->id}}">
+                                                <input type="hidden" name="cliente_id" value="{{$dato->cliente_id}}">
+                                                <button type="submit" class="btn btn-danger" role="button" id="butonBorrar">
+                                                    ELIMINAR
+                                                </button>
+                                            </form>
+                                        </td>     
                                    </tr>
                                   @endforeach
                                   
-                                  
+                                  @endif
                                    @endif
                                 </tbody>
                             </table>
