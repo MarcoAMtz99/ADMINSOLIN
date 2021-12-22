@@ -121,13 +121,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link {{request()->routeIs('cliente.fiscales') == 1 ? 'active': ''}}" href="{{route('cliente.fiscales',['cliente'=>auth()->user()->cliente])}}">
               <span data-feather="file-text"></span>
               Facturacion
             </a>
           </li>
             <li class="nav-item">
-            <a class="nav-link {{request()->routeIs('cliente.personal') == 1 ? 'active': ''}}" href="{{route('cliente.direcciones',['id'=>auth()->user()->cliente])}}">
+            <a class="nav-link {{request()->routeIs('cliente.direcciones') == 1 ? 'active': ''}}" href="{{route('cliente.direcciones',['id'=>auth()->user()->cliente])}}">
               <span data-feather="map"></span>
               Direcciones
             </a>

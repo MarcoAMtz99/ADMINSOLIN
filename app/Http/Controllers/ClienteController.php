@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\cliente;
 use App\Cotizacion;
 use App\Direccion;
+use App\DatosFiscales;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -91,5 +92,13 @@ class ClienteController extends Controller
 
     public function credito(Request $request){
         return view('clientes.credito');
+    }
+     public function datosfiscales(Request $request){
+       // dd($request->cliente);
+        $client = cliente::find($request->cliente);
+        // dd($client);
+        $datosfiscales = DatosFiscales::where('cliente_id',$client->user_id)->get();
+        // dd($datos,$client->user_id);
+        return view('clientes.facturacion',compact('datosfiscales'));
     }
 }

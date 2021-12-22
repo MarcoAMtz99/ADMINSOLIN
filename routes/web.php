@@ -16,8 +16,10 @@ Route::group(['middleware' => 'auth','verified'], function () {
 
 	Route::resource('/users','Admin\UserController');
 	Route::resource('/cotizaciones','CotizacionController');
+    Route::resource('/datosfiscales','DatosFiscalesController');
 
 	Route::get('/cliente/personal','ClienteController@datos_personales')->name('cliente.personal');
+    Route::get('/cliente/fiscales','ClienteController@datosfiscales')->name('cliente.fiscales');
 	Route::get('/cliente/cotizar','ClienteController@cotizar')->name('cliente.cotizar');
 	Route::get('/cliente/rastreo','ClienteController@rastreo')->name('cliente.rastreo');
 	Route::get('/cliente/credito','ClienteController@credito')->name('cliente.credito');

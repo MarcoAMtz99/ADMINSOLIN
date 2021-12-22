@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DatosFiscales;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DatosFiscalesController extends Controller
 {
@@ -36,7 +37,37 @@ class DatosFiscalesController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request);
+
+         $validator =Validator::make($request->all(), [
+            'calle' => ['required', 'string'],
+            'num_ext' => ['required', 'numeric'],
+            'num_int' => ['required', 'numeric'],
+            'colonia' => ['required', 'string'],
+            'cp' => ['required', 'numeric'],
+            'ciudad' => ['required', 'string'],
+            'pais' =>['required', 'string'],
+            'alc_mun' =>['required', 'string'],
+            'rfc' =>['required', 'string','min:4'],
+            'correo' =>['required', 'string', 'email', 'max:255'],
+            'razon_social' =>['required', 'string']
+            
+        ]);
+             if ($validator->fails()) {
+            return redirect('direccion/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }else{
+            $datosFiscales = DatosFiscales::create($request->all());
+            $datosFiscales->save();
+            $datos = DatosFiscales::where('cliente_id',$request->cliente_id)->get();
+
+        
+            return view('clientes.facturacion',[
+                 'id' => $request->cliente_id,'datosfiscales'=>$datos
+             ]);
     }
+      }
 
     /**
      * Display the specified resource.
