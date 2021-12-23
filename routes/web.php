@@ -7,9 +7,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-Auth::routes(['verify' => true]);
+// Auth::routes(['register' => false]);
+Auth::routes(['verify' => true,'register' => false,]);
+Route::get('/registrar','ClienteController@create')->name('cliente.registro');
+Route::post('nuevo/cliente','ClienteController@store')->name('cliente.store');
+//Rutas de vistas estaticas
+Route::get('/inicio','ClienteController@inicio')->name('cliente.inicio');
+Route::get('/nosotros','ClienteController@nosotros')->name('cliente.nosotros');
+Route::get('/faqs','ClienteController@faqs')->name('cliente.faqs');
+Route::get('/rastreo/guia','ClienteController@rastrear')->name('cliente.rastrear');
+Route::get('cliente/login','ClienteController@login')->name('cliente.login');
+Route::get('/contacto','ClienteController@contacto')->name('cliente.contacto');
 
+//
 Route::group(['middleware' => 'auth','verified'], function () {
 
  	Route::get('/home', 'HomeController@index')->name('home');
@@ -35,6 +45,8 @@ Route::group(['middleware' => 'auth','verified'], function () {
     Route::put('/users/update/{id}', 'Admin\UserController@update')->name('users.update');
 
     Route::resource('/cotizacion','CotizacionController');
+
+ 
 
 
     Route::get('/reporteuno',function(){

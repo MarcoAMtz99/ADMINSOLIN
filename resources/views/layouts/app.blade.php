@@ -127,7 +127,7 @@
                     @elseif(auth()->user()->hasRole('cliente'))
                     <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                    <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('') }}</a> -->
+                                    
                                 </li> 
                      </ul>
                      @endif
@@ -135,7 +135,7 @@
                       @else 
                      <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                    <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('') }}</a> -->
+                                    
                                 </li> 
                      </ul>
                       @endauth
@@ -148,9 +148,9 @@
                                 <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Iniciar Sesion') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Registrar') }}</a>
-                                </li>
+                               <!--  <li class="nav-item">
+                                   
+                                </li> -->
                             @endif
                         @else
                             <li class="nav-item dropdown">
